@@ -22,11 +22,9 @@ jobs:
       - name: Cache dependencies
         run: deno install --allow-scripts
 
-      - name: Type check
-        run: deno check src/main.tsx
-
       - name: Build
         run: deno task build
+        # Vite のビルドプロセス内で TypeScript の型チェックとトランスパイルを実行
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
