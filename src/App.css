@@ -1,0 +1,218 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+h1 {
+  color: #333;
+  font-size: 28px;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.difficulty-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.difficulty-selector select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.new-game-btn {
+  padding: 10px 24px;
+  background: #4a90d9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.new-game-btn:hover {
+  background: #357abd;
+}
+
+.complete-message {
+  color: #2ecc71;
+  font-size: 20px;
+  font-weight: bold;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Sudoku Board */
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1;
+  border: 3px solid #333;
+  background: #333;
+  gap: 1px;
+}
+
+.sudoku-cell {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.1s;
+  position: relative;
+}
+
+.sudoku-cell:hover {
+  background: #e3f2fd;
+}
+
+.sudoku-cell.fixed {
+  background: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+}
+
+.sudoku-cell.selected {
+  background: #bbdefb;
+}
+
+.sudoku-cell.invalid {
+  color: #e74c3c;
+  background: #ffebee;
+}
+
+.sudoku-cell.invalid.selected {
+  background: #ffcdd2;
+}
+
+.sudoku-cell.thick-right {
+  border-right: 2px solid #333;
+}
+
+.sudoku-cell.thick-bottom {
+  border-bottom: 2px solid #333;
+}
+
+.cell-value {
+  font-size: 22px;
+  user-select: none;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #666;
+  user-select: none;
+}
+
+.note.empty {
+  color: transparent;
+}
+
+/* Number Pad */
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.num-btn {
+  padding: 14px 0;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.num-btn:hover {
+  background: #e3f2fd;
+  border-color: #4a90d9;
+}
+
+.num-btn:active {
+  transform: scale(0.95);
+}
+
+.control-btn {
+  padding: 14px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  grid-column: span 2;
+}
+
+.control-btn:hover {
+  background: #f0f0f0;
+}
+
+.control-btn.active {
+  background: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .cell-value {
+    font-size: 18px;
+  }
+
+  .note {
+    font-size: 8px;
+  }
+
+  .num-btn {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+}
